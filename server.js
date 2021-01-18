@@ -60,4 +60,21 @@ function startSearch() {
             
         }
     });
-}
+};
+
+function createDepartment() {
+    inquirer.prompt ( [
+        {
+            type: "input",
+            name: "name",
+            message: "Department name?"
+        },
+    ]).then(function (data) {
+        connection.query(`INSERT INTO department SET`,
+        {
+            name: data.name
+        })
+        console.table(data);
+        startSearch();
+    })
+};
