@@ -111,6 +111,29 @@ function createNewEmp() {
     });
 };
 
+function createNewRole() {
+    inquirer.prompt([
+        {
+            type:"input",
+            name: "title",
+            message: "What is the employees job title?"
+        },
+        {
+            type: "input",
+            name: "salary",
+            message: "What is the salary for this position?"
+        }
+    ]).then(function (data) {
+        connection.query(`INSERT INTO employee_role SET ?`,
+        {
+            title: data.title,
+            salary: data.salary
+        })
+        console.table(data);
+        startSearch();
+    });
+};
+
 var currentDepartments = [];
 
 function viewDepartment() {
