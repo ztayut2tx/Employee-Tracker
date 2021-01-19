@@ -23,7 +23,6 @@ CREATE TABLE new_employee (
     first_name VARCHAR (35) NULL,
     last_name VARCHAR (35) NULL,
     role_id INT default 0,
-    manager_id INT NULL,
     PRIMARY KEY (id)
 );
 
